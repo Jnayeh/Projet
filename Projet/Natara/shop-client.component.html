@@ -1,0 +1,55 @@
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+            <a  routerLinkActive="actif" class="nav-link" routerLink="/login">Log Out</a>
+        </li>
+<li class="nav-item">
+    <a  routerLinkActive="actif" class="nav-link" routerLink="/shopClient">Shop</a>
+</li>
+
+<li class="nav-item">
+<a  routerLinkActive="actif" class="nav-link" routerLink="/panier">Panier</a>
+</li>
+<li class="nav-item">
+    <span class="input-group">
+        <input type="text" class="form-control" [(ngModel)]="val">
+    </span>
+</li>
+</ul>
+<body>
+   
+    <ul *ngIf="val==''else recherche" class="list-group list-group-horizontal">
+        <li *ngFor="let x of goods;let ind=index">
+            <span class="card instance rounded"  >
+            <img class="card-img-top" src="{{x.image}}" alt="Image de produit" style="width: 100%;">
+            <div class="card-body rounded" >
+              <h5 class="card-title">{{x.nom}}</h5>
+              <span class="card-text">le prix: {{x.prix}}</span>
+              <button *ngIf="x.availability;else undisponible" (click)="this.shopService.AjouterAuPanier(ind)" class="btn btn-primary butt">Ajouter au panier</button>
+              <ng-template #undisponible>             
+                   <button  class="btn btn-danger butt" disabled>Produit indisponible</button>
+            </ng-template>
+            
+              <a class="btn btn-primary butt" [routerLink]="['/details']" >Details</a>
+            </div>
+        </span></li>
+    </ul>
+    <ng-template #recherche><ul  class="list-group list-group-horizontal">
+            <li *ngFor="let x of this.shopService.chercherProduits(val);let ind=index">
+                    <span class="card instance rounded"  >
+                    <img class="card-img-top" src="{{x.image}}" alt="Image de produit" style="width: 100%;">
+                    <div class="card-body rounded" >
+                      <h5 class="card-title">{{x.nom}}</h5>
+                      <span class="card-text">le prix: {{x.prix}}</span>
+                      <button *ngIf="x.availability;else undisponible" (click)="this.shopService.AjouterAuPanier(ind)" class="btn btn-primary butt">Ajouter au panier</button>
+                      <ng-template #undisponible>             
+                           <button  class="btn btn-danger butt" disabled>Produit indisponible</button>
+                    </ng-template>
+                    
+                      <a class="btn btn-primary butt" [routerLink]="['/details']" >Details</a>
+                    </div>
+                </span></li></ul>
+    </ng-template>
+    <button click="console.log(this.panier[0].nom)">Panier</button>
+</body>
+
