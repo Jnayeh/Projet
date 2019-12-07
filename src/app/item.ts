@@ -1,4 +1,10 @@
 export class Item {
+    public get info(): string {
+        return this._info;
+    }
+    public set info(value: string) {
+        this._info = value;
+    }
     public get id(): string {
         return this._id;
     }
@@ -36,5 +42,5 @@ export class Item {
     public set image(value: string) {
         this._image = value;
     }
-    constructor(private _image:string,private _nom: string,private _prix: number,private _availability: boolean,private _stock: number,private _id: string){}
+    constructor(private _image:string,private _nom: string,private _prix: number,private _availability: boolean,private _stock: number,private _id: string,private _info: string){}
 }

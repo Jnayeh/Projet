@@ -21,14 +21,7 @@ this.service.admn=true;
       alert ('Unvalid password and username combination!  (◉ω◉)');
     }
     }
-    logAsClient(pw:string,un:string){
-      if ((pw!=null)&&(un!='admin')){
-        this.router.navigate(['shopClient']);
-      }
-      else {
-        alert ('Password et username sont des champs obligatoires (ಠ_ಠ) ');
-      }
-      }
+    
 
   ngOnInit() {
   }

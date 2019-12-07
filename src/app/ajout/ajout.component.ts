@@ -18,13 +18,14 @@ export class AjoutComponent implements OnInit {
   img:string="";
   ajout:boolean;
   availibility:boolean=false;
+  info:string="";
 
   onSubmit(f:NgForm)
   {
     if (this.stock > 0){
       this.availibility=true;
     }
-    this.ajout = this.shopService.ajouterProduit(f.value['Img'],f.value['Nom'],f.value['Prix'],this.availibility,f.value['Stock'],f.value['Id'])
+    this.ajout = this.shopService.ajouterProduit(f.value['Img'],f.value['Nom'],f.value['Prix'],this.availibility,f.value['Stock'],f.value['Id'],f.value['info'])
     if (this.ajout==true)
     {
       alert('Produit a été ajouté');

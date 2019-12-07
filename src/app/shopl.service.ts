@@ -6,12 +6,12 @@ import {Item} from './item'
 })
 export class ShoplService {
   
-  itemsList=[new Item("../../assets/s8.png","Samsung Galaxy S8",600,true,10,"s8"),
-  new Item("../../assets/n1110.png","Nokia 1110",4000,false,0,"n1"),
-new Item("../../assets/s10.png","Samsung Galaxy S10",800,false,0,"s10"),
-new Item("../../assets/i11.png","Iphone 11",1400,true,10,"i11"),
-new Item("../../assets/sf.jpg","Samsung Galaxy S Fold",1500,true,69,"sf"),
-new Item("../../assets/sf.jpg","Samsung Galaxy S Fold",1600,true,69,"s")]
+  itemsList=[new Item("../../assets/s8.png","Samsung Galaxy S8",600,true,10,"s8","Camera: 12MP\nStockage: 64GB\nRam: 4GB"),
+  new Item("../../assets/n1110.png","Nokia 1110",4000,false,0,"n1","Camera: none\nStockage: 5MB\nRam: 50MB"),
+new Item("../../assets/s10.png","Samsung Galaxy S10",800,false,0,"s10","Camera: 12MP\nStockage: 128GB\nRam: 8GB"),
+new Item("../../assets/i11.png","Iphone 11",1400,true,10,"i11","Camera: 18MP\nStockage: 128GB\nRam: 3GB"),
+new Item("../../assets/sf.jpg","Samsung Galaxy S Fold",1500,true,420,"sf","Camera: 12MP\nStockage: 256GB\nRam: 6GB"),
+new Item("../../assets/sf.jpg","Samsung Galaxy S Fold gold",1800,true,70,"s","Camera: 12MP\nStockage: 256GB\nRam: 8GB")]
 x;
 admn:boolean=false;
 panier=[];
@@ -28,9 +28,9 @@ getProduitById(i){
 
 
 //Ajout d'un produit à la liste
-ajouterProduit(i:string,n:string,p:number,a:boolean,s:number,id:string,){
+ajouterProduit(i:string,n:string,p:number,a:boolean,s:number,id:string,inf:string){
   if (this.getProduitById(id)==null){
-    this.itemsList.push(new Item(i,n,p,a,s,id));
+    this.itemsList.push(new Item(i,n,p,a,s,id,inf));
     return true;
   }
   else {return false}
@@ -49,7 +49,7 @@ for (let x of this.itemsList){
   }
 }
 }
-public chercherProduits(n:string,p:string)
+chercherProduits(n:string,p:string)
 {
   if((n=='')&&(p=='')){
     return this.itemsList;
@@ -59,10 +59,23 @@ public chercherProduits(n:string,p:string)
   for (let x of this.itemsList){
     let j=0;
     // Recherche par Nom
-    if (n!=''){
+    if (n!=''&&p!=''){
+      for (let i=0 ; i<p.length; i++)
+    {
+      if ((x.prix<=Number(p))&&x.nom[i]==n[i])
+      {
+        j++;
+      }
+    }
+    if (j==p.length){
+      recherche.push(x);}
+  }
+    
+    else if (n!=''){
     for (let i=0 ; i<n.length; i++)
     {
-      if (x.nom[i]==n[i])
+     
+    if (x.nom[i]==n[i])
       {
         j++;
       }
@@ -75,33 +88,18 @@ public chercherProduits(n:string,p:string)
   else if (p!=''){
     for (let i=0 ; i<p.length; i++)
     {
-      if (String(x.prix)[i]==p[i])
+      if (x.prix<=Number(p))
       {
         j++;
       }
     }
     if (j==p.length){
       recherche.push(x);}
-  }
-    /*Recherche par 2 critères
-    
-    else if ((n!='')&&(p!='')){
-      let np=n+p;
-    let z=x.nom+String(x.prix);
-    for (let i=0 ; i<np.length; i++)
-    {
-      if (z[i]==np[i])
-      {
-        j++;
-      }
     }
-    if (j==np.length){
-      recherche.push(x);}
-  }*/
   }
-  return recherche;}
 }
-//Ajout d'un item au panier
+  }
+
 AjouterAuPanier(i:number){
   if (this.panier[0]==null)
   {this.panier[0]=this.itemsList[i];}

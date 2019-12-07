@@ -24,7 +24,7 @@
         </div>
             <div class="form-group">
                 <label for="Stock">Stock du produit</label>
-                <input class="form-control" type="number" id="Stock" name="Stock"[(ngModel)]="stock"required  #st="ngModel" >
+                <input class="form-control" type="number" id="Stock" name="Stock"[(ngModel)]="stock"required  #st="ngModel"er >
                 <div [hidden]="!st.errors?.required || st.pristine" class="alert alert-danger">
                         Le stock est un champ obligatoire
                     </div>
@@ -54,6 +54,13 @@
         <div class="form-group">
             <label for="img">Image du produit</label>
             <input class="form-control" type="text" id="img" name="Img" [(ngModel)]="img" required >
+            </div>
+            <div class="form-group">
+                <label for="info">Info sur le produit</label>
+                <input class="form-control" type="text" id="info"name="info"[(ngModel)]="info" required #inf="ngModel">
+                <div [hidden]="!inf.errors?.required || inf.pristine"class="alert alert-danger">
+                    L'identifiant est un champ obligatoire
+                </div>
             </div>
             <button class="btn btn-success" type="submit"  [disabled]="d.invalid">
                 Enregistrer

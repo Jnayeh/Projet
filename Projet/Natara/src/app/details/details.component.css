@@ -1,9 +1,4 @@
-.instance{
-    margin-right:10px; margin-bottom:10px; background: rgba(172, 184, 197, 0.95); 
-    border:darkgrey solid 2px;
-    width: 20em;
-    height: 32em;
-}
+
 body {
     background-image: url("../../assets/bg.jpg");
     background-repeat: no-repeat;
