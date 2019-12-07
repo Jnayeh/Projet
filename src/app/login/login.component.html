@@ -21,7 +21,7 @@
                 </div>
                 <div ngClass="form-group">
                     <input type="button" (click)="logAsAdmin(pw,username)" name="adm" value="Login as admin" ngClass="btn btn-outline-danger float-right login_btn" >
-                    <input type="button" routerLink="/shopClient" name="cli" value="Continue as user" ngClass="btn btn-outline-danger float-left login_btn">
+                    <input type="button" (click)="logAsClient(pw,username)" name="cli" value="Continue as user" ngClass="btn btn-outline-danger float-left login_btn">
                 </div>
             </form>
         </div>

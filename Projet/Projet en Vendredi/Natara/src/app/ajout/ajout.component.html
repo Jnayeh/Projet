@@ -1,0 +1,66 @@
+
+<ul ngClass="nav nav-tabs">
+    <li ngClass="nav-item">
+            <a  routerLinkActive="actif" ngClass="nav-link" routerLink="/login" onClick="this.shopService.admn=false">Log Out</a>
+    </li>   
+<li ngClass="nav-item">
+    <a  routerLinkActive="actif" ngClass="nav-link" routerLink="/shopAdmin">Page Admin</a>
+</li>
+<li ngClass="nav-item">
+    <a  routerLinkActive="actif" ngClass="nav-link" routerLink="/ajout">Ajouter</a>
+</li>
+
+</ul>
+<body style="height: 1080px;align-items: center;margin-top: 5%;">
+<div class="container" style="background-color: aliceblue;" *ngIf="this.shopService.admn==true;else connect">
+    <h1 style="text-align:center; font-size:100px; font-weight:bold">Ajout d'un Produit</h1>
+<form (ngSubmit)="onSubmit(d)" #d="ngForm" >
+    <div class="form-group">
+        <label for="Nom">Nom du produit</label>
+        <input class="form-control" type="text" id="Nom" name="Nom"[(ngModel)]="nom"required  #n="ngModel" >
+            <div [hidden]="!n.errors?.required || n.pristine" class="alert alert-danger">
+                Le nom est obligatoire
+                </div>
+        </div>
+            <div class="form-group">
+                <label for="Stock">Stock du produit</label>
+                <input class="form-control" type="number" id="Stock" name="Stock"[(ngModel)]="stock"required  #st="ngModel" >
+                <div [hidden]="!st.errors?.required || st.pristine" class="alert alert-danger">
+                        Le stock est un champ obligatoire
+                    </div>
+                <div *ngIf="(st.invalid && st.dirty )|| (st.value < 0)"class="alert alert-danger">
+                        Le stock doit être un nombre positif
+                    </div>
+                </div>
+            <div class="form-group">
+                <label for="Prix">Prix du produit</label>
+                <input class="form-control" type="number" id="Prix" name="Prix"[(ngModel)]="prix"required  #pr="ngModel" >
+                <div [hidden]="!pr.errors?.required || pr.pristine" class="alert alert-danger">
+                            Le prix est un champ obligatoire
+                    </div>
+                    <div *ngIf="(pr.invalid && pr.dirty )|| (pr.value < 0)"class="alert alert-danger">
+                            Le prix doit être un nombre positif
+                        </div>
+                </div>
+            <div>
+                </div>
+        <div class="form-group">
+            <label for="id">Identifiant du produit</label>
+            <input class="form-control" type="text" id="id"name="Id"[(ngModel)]="iden" required #identif="ngModel">
+            <div [hidden]="!identif.errors?.required || identif.pristine"class="alert alert-danger">
+                L'identifiant est un champ obligatoire
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="img">Image du produit</label>
+            <input class="form-control" type="text" id="img" name="Img" [(ngModel)]="img" required >
+            </div>
+            <button class="btn btn-success" type="submit"  [disabled]="d.invalid">
+                Enregistrer
+            </button>
+            
+</form>
+</div>
+<ng-template #connect ><h1 style="text-align: center;">Vous n'êtes pas connecté</h1><div style="margin-left: 45%;"><button class="btn btn-success" routerLink="/login" ><h1>Login</h1></button></div></ng-template>
+
+</body>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ShoplService} from '../shopl.service';
-import { Item } from 'Projet/Natara/src/app/item';
+
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',

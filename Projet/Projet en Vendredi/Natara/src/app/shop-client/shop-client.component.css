@@ -1,0 +1,73 @@
+#k {
+    width:15px;
+    height:15px;
+}
+body {
+    background-image: url("../../assets/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:100vh;
+    padding-top:20px;
+    }
+    html {
+        background-image: url("../../assets/bg.jpg");
+        height:100%;
+    }
+    ul{
+        list-style: none;
+    }
+    .li{
+        float: left;
+        display: block;
+        width: 20em;
+        height: 24em;
+        margin: 4px;
+    }
+    .butt{
+        float:right;
+        margin-left:5px;
+    }
+    .actif
+    {
+        font-weight: bold;
+        
+    }
+    div {
+        margin:1.5px;
+    }
+    .instance{
+        margin-right:10px; margin-bottom:10px; background: rgba(172, 184, 197, 0.95); 
+        border:darkgrey solid 2px;
+        width: 20em;
+        height: 24em;
+    }
+    .login_btn:hover{
+     
+      
+        background: url("../../assets/homeblack.png") no-repeat;
+        background-color: white;
+        border-color:white;
+        background-size: contain;
+        background-position: center;
+    }
+    
+    .btn-outline-danger {
+     
+   
+    
+        background: url("../../assets/home.png") no-repeat;
+        background-color: black;
+        border-color: black;
+        background-size: contain;
+        background-position:  center;
+        
+    }
+  
+    .card-img-top {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+    span input {
+        margin-right: 3px;
+    }

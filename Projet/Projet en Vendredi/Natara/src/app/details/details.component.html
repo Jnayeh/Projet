@@ -1,0 +1,20 @@
+
+<body>
+<div class="container" style="background-color: rgba(240, 248, 255,0.95);height: 100vh;" >
+    
+    <div [ngStyle]="{'height': '60%' }" >
+        <h1 style="font-size:100px;">Ajout d'un Produit</h1>
+        <img ngClass="card-img-top" src="{{Item.image}}" alt="Image de produit">
+        
+    </div>
+    <div style="height:50%">
+        <h2>{{Item.nom | personalised}}</h2>
+        <h2>Prix : {{Item.prix}}</h2>
+        <h2>Stock : {{Item.stock}}</h2>
+        <h3>Autre infos</h3>
+        <a  routerLinkActive="actif" ngClass="nav-link" routerLink="/shopClient" style="font-size:50px;">Retour</a>
+    </div>
+
+
+</div>
+</body>

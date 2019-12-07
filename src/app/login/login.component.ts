@@ -21,7 +21,15 @@ this.service.admn=true;
       alert ('Unvalid password and username combination!  (◉ω◉)');
     }
     }
-    
+    logAsClient(pw:string,un:string){
+      if ((pw!='')&&(un!='')){
+        this.router.navigate(['shopClient']); 
+  this.service.client=true;
+      }
+      else {
+        alert ('Le password and username sont obligatoires');
+      }
+      }
 
   ngOnInit() {
   }
