@@ -78,7 +78,6 @@ public chercherProduits(n:string,p:string)
     else if (n!=''){
     for (let i=0 ; i<n.length; i++)
     {
-     
     if (x.nom[i]==n[i])
       {
         j++;
